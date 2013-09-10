@@ -1,0 +1,9 @@
+{
+    "name": "filtrr",
+    "description": "Apply realistic analog-camera effects to images.",
+    "version": "0.0.1",
+    "private": false,
+    "dependencies": {
+        "async": "0.2.9"
+    }
+}
