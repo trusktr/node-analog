@@ -162,6 +162,18 @@ var _filter = function(effect, input, out, callback) {
             });
             break;
 
+        case 'kelvin':
+            _dimensions(input, function(dimensions) {
+                _convert("\\(", input, "-auto-gamma -modulate 120,50,100 \\) \\( -size "+dimensions.width+"x"+dimensions.height+" -fill rgba\\(255,153,0,0.5\\) -draw 'rectangle 0,0 "+dimensions.width+","+dimensions.height+"' \\) -compose multiply", out, function(err, stdout, stderr) {
+                    if (_showCommandOutput(err, stdout, stderr)) {
+                        _frame('kelvin', out, out, function() {
+                            console.log('Done applying '+effect+'.');
+                        });
+                    }
+                });
+            });
+            break;
+
         default:
             console.log('Invalid effect specified.');
     }
