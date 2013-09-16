@@ -174,6 +174,14 @@ var _filter = function(effect, input, out, callback) {
             });
             break;
 
+        case 'tiltshift':
+            _convert("\\(", input, "-gamma 0.75 -modulate 100,130 -contrast \\) \\( +clone -sparse-color Barycentric '0,0 black 0,%h white' -function polynomial 4,-4,1 -level 0,50% \\) -compose blur -set option:compose:args 5 -composite", out, function(err, stdout, stderr) {
+                if (_showCommandOutput(err, stdout, stderr)) {
+                    console.log('Done applying '+effect+'.');
+                }
+            });
+            break;
+
         default:
             console.log('Invalid effect specified.');
     }
