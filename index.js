@@ -1,6 +1,5 @@
 
 // LIBRARIES
-var async = require('async');
 var execute = require('child_process').exec;
 
 // PRIVATE #########################

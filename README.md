@@ -12,6 +12,6 @@ analog.in('./photo.jpg'); // Specify the input file.
 analog.out('./result.jpg'); // Specify the output file.
 
 analog.apply('gotham', function() {
-    console.log('Applied lomo!');
+    console.log('Applied the gotham filter!');
 });
 ```
