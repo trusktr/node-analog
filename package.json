@@ -1,6 +1,6 @@
 {
-    "name": "filtrr",
-    "description": "Apply realistic analog-camera effects to images.",
+    "name": "analog",
+    "description": "Analog imperfections for your digital images.",
     "version": "0.0.1",
     "private": false,
     "dependencies": {
