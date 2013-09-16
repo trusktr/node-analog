@@ -121,6 +121,47 @@ var _filter = function(effect, input, out, callback) {
             );
             break;
 
+        case 'toaster':
+            _colortone('#330000', 100, 0, input, out, function() {
+                _convert('', out, "-modulate 150,80,100 -gamma 1.2 -contrast -contrast", out,
+                    function(err, stdout, stderr) {
+                        if (!err) {
+                            _vignette('none', 'LavenderBlush3', 1.5, out, out, function() {
+                                _vignette('#ff9966', 'none', 1.5, out, out, function() {
+                                    console.log('Done applying '+effect+'.');
+                                    callback();
+                                });
+                            });
+                        }
+                    }
+                );
+            });
+            break;
+
+        case 'nashville':
+            _colortone('#222b6d', 100, 0, input, out, function() {
+                _colortone('#f7daae', 100, 1, out, out, function() {
+                    _convert('', out, "-contrast -modulate 100,150,100 -auto-gamma", out, function(err, stdout, stderr) {
+                        if (_showCommandOutput(err, stdout, stderr)) {
+                            _frame('nashville', out, out, function() {
+                                console.log('Done applying '+effect+'.');
+                            });
+                        }
+                    });
+                });
+            });
+            break;
+
+        case 'lomo':
+            _convert('', input, "-channel R -level 33% -channel G -level 33%", out, function(err, stdout, stderr) {
+                if (_showCommandOutput(err, stdout, stderr)) {
+                    _vignette(false, false, false, out, out, function() {
+                        console.log('Done applying '+effect+'.');
+                    });
+                }
+            });
+            break;
+
         default:
             console.log('Invalid effect specified.');
     }
