@@ -3,7 +3,8 @@ analog
 
 Analog imperfections for your digital images.
 
-## Usage
+Usage
+-----
 
 ```javascript
 var analog = require('analog');
@@ -15,3 +16,13 @@ analog.apply('gotham', function() { // gotham, toaster, nashville, lomo, kelvin,
     console.log('Applied the gotham filter!');
 });
 ```
+
+Requirements
+------------
+
+ImageMagick should be installed on your system.
+
+Roadmap
+-------
+
+ * Replace ImageMagic with a WebGL canvas.
